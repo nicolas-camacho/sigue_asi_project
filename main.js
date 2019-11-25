@@ -10,7 +10,7 @@ let posQuestion = [{
 
 let fQuestion = [{
   type: 'list',
-  choices: ['Show big Array', 'Insert next'],
+  choices: ['Show big Array', 'Insert next', 'Delete last'],
   message: "Select an option",
   name: 'option'
 }]
@@ -20,6 +20,9 @@ const init = () => {
   inquirer.prompt(fQuestion).then(answers => {
     if(answers['option'] === 'Show big Array') {
       console.log(bigArray);
+      init()
+    }else if(answers['option'] === 'Delete last'){
+      bigArray.pop()
       init()
     }else{
       insertSpos()
